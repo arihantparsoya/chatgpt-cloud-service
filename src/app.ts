@@ -19,6 +19,9 @@ app.use(bodyParser.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 
 app.post('/chat', authMiddleware, chatController);
+app.get("/", (req, res) => {
+  res.send('<html><body>Thank you for using GPT Cloud Service. Learn more about this service <a target="_" href="https://github.com/arihantparsoya/chatgpt-cloud-service">here</a><body></html>');
+})
 
 app.listen(port, () => {
   console.log(`API server is running on port ${port}`);
