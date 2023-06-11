@@ -26,6 +26,7 @@ Before using the ChatGPT Microservice, make sure you have the following installe
 - npm
 - ChatGPT API access token
 - Docker (optional, for containerization)
+- Firebase Authentication
 
 ## Getting Started
 
