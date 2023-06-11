@@ -1,28 +1,25 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { VerifyOptions } from 'jsonwebtoken';
+import * as firebaseAdmin from 'firebase-admin';
 
 export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
-    const authorizationHeader = req.headers.authorization;
+  const { authorization } = req.headers;
 
-  if (authorizationHeader) {
-        const token = authorizationHeader.split(' ')[1];
-        const secret = 'your-secret-key'; // Replace with your own secret key
-
-    const options: VerifyOptions = {
-        issuer: 'your-issuer', // Replace with the expected issuer value
-        audience: 'your-audience', // Replace with the expected audience value
-        // Additional options can be added here, like subject (sub) or clockTolerance
-    };
-
-    jwt.verify(token, secret, options, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ error: 'Invalid token' });
-        } else {
-            // req.user = decoded; // Attach the decoded user data to the request object
-            next();
-        }
-    });
-  } else {
-    res.status(401).json({ error: 'Authorization header missing' });
+  if (!authorization || !authorization.startsWith('Bearer ')) {
+    return res.status(401).send('Unauthorized');
   }
+
+  const idToken = authorization.split('Bearer ')[1];
+
+  firebaseAdmin
+  .auth()
+    .verifyIdToken(idToken, true)
+    .then((decodedToken: any) => {
+      // req["user"] = decodedToken; // Attach the decoded token to the request object
+      next();
+    })
+    .catch((error) => {
+      console.error('Error validating Firebase token:', error);
+      return res.status(401).send('Unauthorized');
+    });
 };

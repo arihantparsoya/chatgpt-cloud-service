@@ -4,6 +4,12 @@ import envConfig from './env-config';
 import { chatController } from './controllers/chatController';
 import { authMiddleware } from './middleware/authMiddleware';
 const bodyParser = require('body-parser');
+const firebaseAdmin = require('firebase-admin');
+
+// Initialize Firebase Admin SDK
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert('./serviceAccountKey.json'), // Path to your Firebase service account key JSON file
+});
 
 const app = express();
 const port = 3000;
