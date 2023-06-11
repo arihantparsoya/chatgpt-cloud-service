@@ -106,6 +106,10 @@ Before using the ChatGPT Microservice, make sure you have the following installe
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
+Community
+
+Join our Discord community to connect with other developers, ask questions, and get support. [Link to Discord Community](https://discord.gg/NA9nkZaQnv)
+
 ## License
 
 This project is licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0). See the [LICENSE](LICENSE) file for more details.
