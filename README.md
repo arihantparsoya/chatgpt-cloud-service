@@ -61,6 +61,10 @@ Before using the ChatGPT Microservice, make sure you have the following installe
    CHATGPT_API_KEY=your-api-key
    ```
 
+### ChatGPT Prompts
+
+To add context and information to your prompts before sending it to ChatGPT, add the additional details as message in the [chatController.ts](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/src/controllers/chatController.ts#L11) file.
+
 ### Usage
 
 1. Start the project:
