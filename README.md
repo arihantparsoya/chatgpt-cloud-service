@@ -74,12 +74,12 @@ Before using the ChatGPT Microservice, make sure you have the following installe
    Example using cURL:
 
    ```shell
-curl --location 'http://localhost:3000/chat' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer YOUR_BEARER_TOKEN' \
---data '{
-    "message": "What is the population of USA?"
-}'
+    curl --location 'http://localhost:3000/chat' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer YOUR_BEARER_TOKEN' \
+    --data '{
+        "message": "What is the population of USA?"
+    }'
    ```
 
 4. The microservice will modify the request and forward it to the ChatGPT API. The response from the API will be returned to the user.
