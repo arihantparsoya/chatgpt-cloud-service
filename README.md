@@ -48,6 +48,7 @@ Before using the ChatGPT Microservice, make sure you have the following installe
    ```shell
    npm install
    ```
+4. Setup Firebase for authentication by adding your Firebase configurations in [serviceAccountKey.json](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/serviceAccountKey.json)
 
 ### Configuration
 
