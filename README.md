@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.com/your-username/chatgpt-microservice.svg?branch=main)](https://travis-ci.com/your-username/chatgpt-microservice)
 
-ChatGPT Cloud Service is a Node.js cloud microservice written in TypeScript that allows developers to easily implement the ChatGPT service into their applications for their users. This service handles the authentication token and modifies the requests before passing them to the ChatGPT API.
+ChatGPT Cloud Service is a Node.js cloud backend written in TypeScript that allows developers to easily implement the ChatGPT service into their applications for their users. This service handles the authentication token and modifies the requests before passing them to the ChatGPT API.
 
 By using this microservice, developers no longer need to expose their API keys to users, providing a secure way to add ChatGPT functionality to their apps.
 
