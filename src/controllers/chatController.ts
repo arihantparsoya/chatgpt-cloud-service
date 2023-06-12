@@ -8,13 +8,7 @@ interface Message {
 
 export const chatController = async (req: Request, res: Response) => {
     try {
-        const messages: Message[] = [
-            { role: 'system', content: 'you are a helpful assistant' },
-            { role: 'assistant', content: 'Hi there! How can I assist you?' },
-            { role: 'user', content: req.body.message },
-        ];
-    
-        const response = await callChatGPTAPI(messages);
+        const response = await callChatGPTAPI(req.body.messages);
         res.json({ response });
     } catch (error) {
         res.status(500).json({ error: 'An error occurred' });
