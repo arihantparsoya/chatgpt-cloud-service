@@ -18,7 +18,14 @@ envConfig(); // Load environment variables from .env file
 app.use(bodyParser.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 
-app.post('/chat', authMiddleware, chatController);
+if(process.env.USE_AUTHENTICATION == "true"){
+  console.log("Adding authentication");
+  app.post('/chat', authMiddleware, chatController);
+} else{
+  console.log("Continuing without authentication");
+  app.post('/chat', chatController);
+}
+
 app.get("/", (req, res) => {
   res.send('<html><body>Thank you for using GPT Cloud Service. Learn more about this service <a target="_" href="https://github.com/arihantparsoya/chatgpt-cloud-service">here</a><body></html>');
 })
