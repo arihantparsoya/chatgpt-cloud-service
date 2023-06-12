@@ -54,7 +54,7 @@ Before using the ChatGPT Microservice, make sure you have the following installe
 
 1. Open the `.env` file in the project root directory.
 
-2. Set your ChatGPT API key:
+2. Set your ChatGPT API key in `.env` file:
 
    ```plaintext
    CHATGPT_API_KEY=your-api-key
@@ -110,9 +110,13 @@ To add context and information to your prompts before sending it to ChatGPT, add
    The microservice will be accessible at `http://localhost:3000`.
 
 ## [Optional] Firebase Authentication
-If you want to add authentication to your APIs using firebase, you can enable it in 
+If you want to add authentication to your APIs using Firebase, you can enable it by setting `USE_AUTHENTICATION` variable in `.env` file:
 
-To Firebase for authentication by adding your Firebase configurations in [serviceAccountKey.json](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/serviceAccountKey.json). If you dont have firebase setup and want to test the service, you can remove the `authMiddleware` from [app.ts](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/src/app.ts) file.
+  ```
+  USE_AUTHENTICATION=false
+  ```
+
+Configure Firebase for authentication by adding your Firebase configurations in [serviceAccountKey.json](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/serviceAccountKey.json).
 
 ## Contributing
 
