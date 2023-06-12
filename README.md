@@ -11,10 +11,10 @@ By using this microservice, developers no longer need to expose their API keys t
 ## Features
 
 - Securely integrate ChatGPT into your applications
-- Manage user authentication tokens
 - Modify and customize requests before sending them to the ChatGPT API
 - Easy-to-use TypeScript interface
 - Deployable as a containerized application
+- Manage user authentication tokens
 - Planned features:
   - Database integration
 
@@ -26,7 +26,7 @@ Before using the ChatGPT Microservice, make sure you have the following installe
 - npm
 - ChatGPT API access token
 - Docker (optional, for containerization)
-- Firebase Authentication
+- [Optional] Firebase Authentication
 
 ## Getting Started
 
@@ -49,7 +49,6 @@ Before using the ChatGPT Microservice, make sure you have the following installe
    ```shell
    npm install
    ```
-4. Setup Firebase for authentication by adding your Firebase configurations in [serviceAccountKey.json](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/serviceAccountKey.json). If you dont have firebase setup and want to test the service, you can remove the `authMiddleware` from [app.ts](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/src/app.ts) file.
 
 ### Configuration
 
@@ -82,9 +81,13 @@ To add context and information to your prompts before sending it to ChatGPT, add
    ```shell
     curl --location 'http://localhost:3000/chat' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Bearer YOUR_BEARER_TOKEN' \
+    --header 'Authorization: Bearer USER_BEARER_TOKEN' \
     --data '{
-        "message": "What is the population of USA?"
+        "messages": [
+            { "role": "system", "content": "you are a helpful assistant" },
+            { "role": "assistant", "content": "Hi there! How can I assist you?" },
+            { "role": "user", "content": "What is the population of USA" }
+        ]
     }'
    ```
 
@@ -105,6 +108,11 @@ To add context and information to your prompts before sending it to ChatGPT, add
    ```
 
    The microservice will be accessible at `http://localhost:3000`.
+
+## [Optional] Firebase Authentication
+If you want to add authentication to your APIs using firebase, you can enable it in 
+
+To Firebase for authentication by adding your Firebase configurations in [serviceAccountKey.json](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/serviceAccountKey.json). If you dont have firebase setup and want to test the service, you can remove the `authMiddleware` from [app.ts](https://github.com/arihantparsoya/chatgpt-cloud-service/blob/main/src/app.ts) file.
 
 ## Contributing
 
