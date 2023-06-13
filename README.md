@@ -83,6 +83,7 @@ To add context and information to your prompts before sending it to ChatGPT, add
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer USER_BEARER_TOKEN' \
     --data '{
+        "model": "gpt-3.5-turbo",
         "messages": [
             { "role": "system", "content": "you are a helpful assistant" },
             { "role": "assistant", "content": "Hi there! How can I assist you?" },
